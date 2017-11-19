@@ -109,14 +109,14 @@ public class Principal {
      * @param s Origem no grafo
      * @param v Destino no grafo
      */
-    public static void mostraCaminho(int[][] G, int s, int v) {
+    public static void mostrarCaminho(int[][] G, int s, int v) {
         if (v == s) {
             System.out.println("Partindo de:" + trocar(v));
         } else {
             if (pi[v] == -1) {
                 System.out.println("Não existe caminho de " + trocar(s) + " a " + trocar(v));
             } else {
-                mostraCaminho(G, s, pi[v]);
+                mostrarCaminho(G, s, pi[v]);
                 System.out.println("Visitando:" + trocar(v) + " distância até " + trocar(s) + " = " + d[v]);
             }
         }
@@ -196,7 +196,7 @@ public class Principal {
         if (retorno == false) {
             int v = destrocar('z');
             System.out.println("Caminho de " + trocar(s) + " até " + trocar(v) + ":");
-            mostraCaminho(G, s, 4);
+            mostrarCaminho(G, s, 4);
 
         } else {
             System.out.println("Existe ciclo negativo no grafo ");
