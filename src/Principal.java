@@ -81,8 +81,7 @@ public class Principal {
     public static void inicializaFonteUnica(int[][] G, int s) {
         for (int v = 0; v < G.length; v++) {
             d[v] = Integer.MAX_VALUE;
-            pi[v] = -1;
-            //h[v] = false;
+            pi[v] = -1;            
         }
         d[s] = 0;
         pi[s] = 0;
@@ -95,8 +94,7 @@ public class Principal {
      * @param v Vértice de destino
      * @param w Peso do caminho u até v.
      */
-    private static void relaxamento(int u, int v, int w) {
-        //if (!h[v] || d[v] > d[u] + w) {
+    private static void relaxamento(int u, int v, int w) {        
         if (d[v] > d[u] + w) {
             d[v] = d[u] + w;
             pi[v] = u;
@@ -117,11 +115,35 @@ public class Principal {
             if (pi[v] == -1) {
                 System.out.println("Não existe caminho de " + trocar(s) + " a " + trocar(v));
             } else {
+                int x = pi[v];
                 mostrarCaminho(G, s, pi[v]);
-                System.out.println("Visitando:" + trocar(v) + " distância até " + trocar(s) + " = " + d[v]);
+                System.out.println("Visitando:" + trocar(pi[v]) + " distância até " + trocar(v) + " = " + d[v]);
+                
             }
         }
     }
+    
+     /**
+     * Exibe o caminho a ser percorrido no Grafo e o custo
+     *
+     * @param S Lista a ser percorrido para mostrar o caminho e o custo
+     */
+    public static void mostrarCaminho(int[][] G, int s) {
+        //Quantidade de vértices da lista
+        int n = G.length;
+        //Guarda o custo do caminho
+        int custo = 0;
+        //Percorre os vértices apartir de pi
+        //O laço começa em 1 pois na posição 0 temos -1 do início
+        int p = pi[0];        
+        for (int v = 1; v < n; v++) {
+            System.out.println(trocar(pi[p]) + "->" + trocar(p) + " custo:" + d[pi[p]] );
+            custo = custo + d[pi[p]];            
+            p = p + 1;
+        }
+        System.out.println("Custo Total:" + custo);
+    }
+    
     
     /**
      * Executa o algoritmo de Belmman-Ford para Caminhos Mínimos de fonte única.
@@ -196,8 +218,9 @@ public class Principal {
 
         if (retorno == false) {
             int v = destrocar('z');
-            System.out.println("Caminho de " + trocar(s) + " até " + trocar(v) + ":");
+            System.out.println("Caminho de " + trocar(s) + "->" + trocar(v) + ":");
             mostrarCaminho(G, s, 4);
+            //mostrarCaminho(G, s);
 
         } else {
             System.out.println("Existe ciclo negativo no grafo ");
