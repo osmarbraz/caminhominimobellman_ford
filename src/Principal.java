@@ -55,15 +55,16 @@ public class Principal {
      * Gera um vetor de arestas e pesos.
      *
      * @param G Matriz de adjacência do grafo
-     * @return Um vetor de areastas e pesos.
+     * @return Um vetor de arestas e pesos.
      */
     public static List getMatrizVertices(int[][] G) {
         int n = G.length;
         List vertices = new LinkedList();
         for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                //Somente para o triângulo superior
+            for (int j = 0; j < n; j++) {                
                 if (G[i][j] != 0) {
+                    //Cria um vetor de 3 elementos para conter                     
+                    //[0]=u(origem), [1]=v(destino), [2]=w(peso)
                     vertices.add(new int[]{i, j, G[i][j]});
                 }
             }
@@ -91,7 +92,7 @@ public class Principal {
      * Teste se pode ser melhorado o caminho mínimo de u até v.
      *
      * @param u Vértice de origem.
-     * @param v Vértice de destico
+     * @param v Vértice de destino
      * @param w Peso do caminho u até v.
      */
     private static void relaxamento(int u, int v, int w) {
@@ -106,8 +107,8 @@ public class Principal {
      * Mostra o caminho de s até v no grafo G
      *
      * @param G Matriz do grafo
-     * @param s Origem no grafo
-     * @param v Destino no grafo
+     * @param s Vértice de origem no grafo
+     * @param v Vértice de destino no grafo
      */
     public static void mostrarCaminho(int[][] G, int s, int v) {
         if (v == s) {
