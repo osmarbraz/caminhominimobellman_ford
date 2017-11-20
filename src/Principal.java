@@ -109,41 +109,15 @@ public class Principal {
      * @param v Vértice de destino no grafo
      */
     public static void mostrarCaminho(int[][] G, int s, int v) {
-        if (v == s) {
-            System.out.println("Partindo de:" + trocar(v));
-        } else {
+        if (v != s) {            
             if (pi[v] == -1) {
                 System.out.println("Não existe caminho de " + trocar(s) + " a " + trocar(v));
-            } else {
-                int x = pi[v];
+            } else {                
                 mostrarCaminho(G, s, pi[v]);
-                System.out.println("Visitando:" + trocar(pi[v]) + " distância até " + trocar(v) + " = " + d[v]);
-                
+                System.out.println(trocar(pi[v]) + " -> " + trocar(v) + " custo: " + d[v]);                
             }
         }
-    }
-    
-     /**
-     * Exibe o caminho a ser percorrido no Grafo e o custo
-     *
-     * @param S Lista a ser percorrido para mostrar o caminho e o custo
-     */
-    public static void mostrarCaminho(int[][] G, int s) {
-        //Quantidade de vértices da lista
-        int n = G.length;
-        //Guarda o custo do caminho
-        int custo = 0;
-        //Percorre os vértices apartir de pi
-        //O laço começa em 1 pois na posição 0 temos -1 do início
-        int p = pi[0];        
-        for (int v = 1; v < n; v++) {
-            System.out.println(trocar(pi[p]) + "->" + trocar(p) + " custo:" + d[pi[p]] );
-            custo = custo + d[pi[p]];            
-            p = p + 1;
-        }
-        System.out.println("Custo Total:" + custo);
-    }
-    
+    }          
     
     /**
      * Executa o algoritmo de Belmman-Ford para Caminhos Mínimos de fonte única.
@@ -203,11 +177,11 @@ public class Principal {
 
         //Grafo da página 465 Thomas H. Cormen 3 ed
         int G[][]
-                = //s   t   x  y   z    
-                {{0, 6, 0, 7, 0}, //s
-                {0, 0, 5, 8, -4}, //t
-                {0, -2, 0, 0, 0}, //x
-                {0, 0, -3, 0, 9}, //y
+             = //s  t  x  y  z    
+               {{0, 6, 0, 7, 0}, //s
+                {0, 0, 5, 8,-4}, //t
+                {0,-2, 0, 0, 0}, //x
+                {0, 0,-3, 0, 9}, //y
                 {2, 0, 7, 0, 0}};//z
 
         System.out.println("Caminho mínimos de fonte única, Algoritmo de Bellman-Ford");
@@ -218,10 +192,8 @@ public class Principal {
 
         if (retorno == false) {
             int v = destrocar('z');
-            System.out.println("Caminho de " + trocar(s) + "->" + trocar(v) + ":");
-            mostrarCaminho(G, s, 4);
-            //mostrarCaminho(G, s);
-
+            System.out.println("Caminho mínimo de " + trocar(s) + " -> " + trocar(v) + ":");
+            mostrarCaminho(G, s, 4); 
         } else {
             System.out.println("Existe ciclo negativo no grafo ");
         }
