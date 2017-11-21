@@ -79,6 +79,11 @@ public class Principal {
      * @param s Vértice inicial
      */
     public static void inicializaFonteUnica(int[][] G, int s) {
+        //Quantidade de vértices do grafo G
+        int V = G.length;
+        //Instancia os vetores
+        d = new int[V];
+        pi = new int[V];
         for (int v = 0; v < G.length; v++) {
             d[v] = Integer.MAX_VALUE;
             pi[v] = -1;            
@@ -134,10 +139,6 @@ public class Principal {
 
         //Quantidade de vértices do grafo G
         int V = G.length;
-
-        //Instancia os vetores
-        d = new int[V];
-        pi = new int[V];
 
         //Converte a matriz em uma lista de arestas
         List arestas = getMatrizVertices(G);
