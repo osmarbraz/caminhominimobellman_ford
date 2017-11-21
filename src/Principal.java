@@ -30,8 +30,12 @@ public class Principal {
      * @return Uma String com a letra da posição i
      */
     public static String trocar(int i) {
-        String letras = "stxyz";
-        return letras.charAt(i) + "";
+        String letras = "stxyz";        
+        if ((i >=0) && (i<=letras.length())) {
+            return letras.charAt(i) + "";
+        } else {
+            return "-";
+        }
     }
 
     /**
