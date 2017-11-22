@@ -5,6 +5,8 @@
  * Disciplinas: Projeto e Análise de Algoritmos
  * Prof Alexandre Gonçalves da Silva 
  *
+ * Baseado nos slides 85 da aula do dia 27/10/2017 
+ *
  * Página 474 Thomas H. Cormen 3a Ed 
  *
  * Caminho mínimos de fonte única, Algoritmo de Bellman-Ford
@@ -134,7 +136,7 @@ public class Principal {
      * Encontra a distância mais curta de s para todos os outros vértices.
      * Retorna se existe ciclo negativo no grafo.
      *
-     * Complexidade do algoritmo é O(E lg E)
+     * Complexidade do algoritmo é O(VE)
      *
      * @param G Matriz de indicência da árvore
      * @return Vetor com a lista das arestas de menor custo
