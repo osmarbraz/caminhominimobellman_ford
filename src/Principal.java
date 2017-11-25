@@ -10,6 +10,8 @@
  * Página 474 Thomas H. Cormen 3a Ed 
  *
  * Caminho mínimos de fonte única, Algoritmo de Bellman-Ford
+ *
+ * Grafo não possui arestas de peso negativo.
  */
 
 /**
