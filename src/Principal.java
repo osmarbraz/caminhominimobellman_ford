@@ -11,7 +11,9 @@
  *
  * Caminho mínimos de fonte única, Algoritmo de Bellman-Ford
  *
- * Grafo não possui arestas de peso negativo.
+ * O algoritmo de Bellman-Ford recebe um grafo orientado ponderado(G,w) 
+ * (possivelmente com arestas de peso negativo) e um v vértice origem s de G
+ *
  */
 
 /**
