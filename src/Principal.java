@@ -12,7 +12,8 @@
  * Caminho mínimos de fonte única, Algoritmo de Bellman-Ford
  *
  * O algoritmo de Bellman-Ford recebe um grafo orientado ponderado(G,w) 
- * (possivelmente com arestas de peso negativo) e um v vértice origem s de G
+ * (possivelmente com arestas de peso negativo) e um v vértice origem s de G.
+ * Tempo maior de execução que Dijkstra.
  *
  */
 
@@ -195,7 +196,7 @@ public class Principal {
                 {0, 0,-3, 0, 9}, //y
                 {2, 0, 7, 0, 0}};//z
 
-        System.out.println("Caminho mínimos de fonte única, Algoritmo de Bellman-Ford");
+        System.out.println(">>> Caminho mínimos de fonte única, Algoritmo de Bellman-Ford <<<");
 
         //Executa o algoritmo
         int s = destrocar('s');
