@@ -9,3 +9,4 @@ Baseado nos slides 85 da aula do dia 27/10/2017 <br>
 Página 474 Thomas H. Cormen 3a Ed <br>
 <br>
 Caminho mínimos de fonte única, Algoritmo de Bellman-Ford<br>
+Encontra o caminho mínimo em um grafo valorado, cujas as arestas têm pesos negativos.
