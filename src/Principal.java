@@ -143,7 +143,7 @@ public class Principal {
      *
      * Complexidade do algoritmo é O(VE)
      *
-     * @param G Matriz de indicência da árvore
+     * @param G Matriz de adjacência da árvore
      * @return Vetor com a lista das arestas de menor custo
      */
     public static boolean algoritmoBellmanFord(int[][] G, int s) {
